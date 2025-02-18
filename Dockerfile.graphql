@@ -1,0 +1,22 @@
+# Use a imagem oficial do Node.js como base
+FROM node:18-alpine
+
+# Defina o diretório de trabalho no container
+WORKDIR /app
+
+# Copie os arquivos package.json e package-lock.json
+COPY package*.json ./
+
+# Instale as dependências do projeto
+RUN npm ci
+
+# Copie o restante dos arquivos do servidor GraphQL
+COPY server.js schema.js resolvers.js ./
+COPY models ./models
+
+# Exponha a porta que o servidor GraphQL usará
+EXPOSE 4000
+
+# Comando para iniciar o servidor GraphQL
+CMD ["node", "server.js"]
+
