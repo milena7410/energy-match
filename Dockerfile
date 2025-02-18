@@ -1,24 +1,24 @@
-# Use a imagem oficial do Node.js como base
+# Use a specific Node.js version
 FROM node:18-alpine
 
-# Defina o diretório de trabalho no container
+# Set working directory
 WORKDIR /app
 
-# Copie os arquivos package.json e package-lock.json
+# Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Instale as dependências do projeto
-RUN npm ci
+# Install dependencies
+RUN npm install
 
-# Copie o restante dos arquivos do projeto
+# Copy the rest of the application
 COPY . .
 
-# Construa o aplicativo
+# Build the application
 RUN npm run build
 
-# Exponha a porta que o aplicativo usará
+# Expose the port the app runs on
 EXPOSE 3000
 
-# Comando para iniciar o aplicativo
+# Start the application
 CMD ["npm", "start"]
 

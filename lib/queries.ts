@@ -3,7 +3,7 @@ import { gql } from "@apollo/client"
 export const GET_FORNECEDORES = gql`
   query GetFornecedores($page: Int!, $pageSize: Int!) {
     fornecedores(page: $page, pageSize: $pageSize) {
-      fornecedores {
+      items {
         id
         nome
         logo

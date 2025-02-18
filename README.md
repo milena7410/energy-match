@@ -1,7 +1,6 @@
-# Energy Match - Comparador de Fornecedores de Energia
-⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️
+# Energy Match - ⚡️
+
 Energy Match é uma aplicação web moderna que permite aos usuários comparar fornecedores de energia no Brasil, ajudando-os a encontrar as melhores opções para suas necessidades energéticas.
-⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️
 
 ## 🚀 Funcionalidades
 
@@ -30,7 +29,7 @@ Energy Match é uma aplicação web moderna que permite aos usuários comparar f
 - [Docker](https://www.docker.com/) e [Docker Compose](https://docs.docker.com/compose/)
 
 ### Passos para execução local:
- 1. Clone o repositório: git clone https://github.com/seu-usuario/energy-match.git
+ 1. Clone este repositório
  2. Entre no diretório do projeto: cd energy-match
  3. Instale as dependências: npm install
  4. Copie este arquivo .env para .env.local: cp .env .env.local

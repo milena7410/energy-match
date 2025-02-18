@@ -7,16 +7,20 @@ WORKDIR /app
 # Copie os arquivos package.json e package-lock.json
 COPY package*.json ./
 
-# Instale as dependências do projeto
-RUN npm ci
+# Instale as dependências do projeto com uma abordagem mais flexível
+RUN npm install --legacy-peer-deps
 
 # Copie o restante dos arquivos do servidor GraphQL
-COPY server.js schema.js resolvers.js ./
+COPY server.js schema.js resolvers.js seed.js ./
 COPY models ./models
 
 # Exponha a porta que o servidor GraphQL usará
 EXPOSE 4000
 
+# Crie um script de inicialização
+RUN echo "#!/bin/sh\nnode seed.js && node server.js" > /app/start.sh
+RUN chmod +x /app/start.sh
+
 # Comando para iniciar o servidor GraphQL
-CMD ["node", "server.js"]
+CMD ["/app/start.sh"]
 
